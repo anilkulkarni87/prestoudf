@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  coordinator:
+    build:
+      context: ./presto-coordinator
+      args:
+        VERSION: 306
+    ports:
+      - "8080:8080"
+    container_name: "coordinator"
+    command: coordinator
+    volumes:
+      - $PWD/../build/libs/:/usr/local/presto/plugin/udfs
+  worker0:
+    build:
+      context: ./presto-worker
+      args:
+        VERSION: 306
+    container_name: "worker0"
+    command: worker0
+    ports:
+      - "8081:8081"
+    volumes:
+      - $PWD/../build/libs/:/usr/local/presto/plugin/udfs
