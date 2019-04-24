@@ -10,7 +10,7 @@ targetCompatibility = 1.8
 
 
 ext {
-    prestoVersion = '0.213'
+    prestoVersion = '307'
     airliftUnitsVersion = '1.3'
     airliftSliceVersion = '0.36'
     guavaVersion = '27.0.1-jre'
@@ -33,11 +33,11 @@ dependencies {
     implementation "com.amazonaws:aws-java-sdk-kms:$awsSdkKmsVersion"
     implementation "com.amazonaws:aws-encryption-sdk-java:$awsSdkVersion"
     implementation "org.jasypt:jasypt:$jasyptVersion"
-    compileOnly "com.facebook.presto:presto-main:$prestoVersion"
-    compileOnly "com.facebook.presto:presto-spi:$prestoVersion"
+    compileOnly "io.prestosql:presto-main:$prestoVersion"
+    compileOnly "io.prestosql:presto-spi:$prestoVersion"
     compileOnly "io.airlift:slice:$airliftSliceVersion"
     compileOnly "io.airlift:units:$airliftUnitsVersion"
-    testImplementation "com.facebook.presto:presto-tests:$prestoVersion"
+    testImplementation "io.prestosql:presto-tests:$prestoVersion"
 
 }
 

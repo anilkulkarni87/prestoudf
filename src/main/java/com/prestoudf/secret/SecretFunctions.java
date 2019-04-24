@@ -5,12 +5,12 @@ import com.amazonaws.encryptionsdk.CryptoResult;
 import com.amazonaws.encryptionsdk.kms.KmsMasterKey;
 import com.amazonaws.encryptionsdk.kms.KmsMasterKeyProvider;
 import com.amazonaws.regions.DefaultAwsRegionProviderChain;
-import com.facebook.presto.spi.ConnectorSession;
-import com.facebook.presto.spi.function.Description;
-import com.facebook.presto.spi.function.ScalarFunction;
-import com.facebook.presto.spi.function.SqlType;
-import com.facebook.presto.spi.security.AccessDeniedException;
-import com.facebook.presto.spi.type.StandardTypes;
+import io.prestosql.spi.connector.ConnectorSession;
+import io.prestosql.spi.function.Description;
+import io.prestosql.spi.function.ScalarFunction;
+import io.prestosql.spi.function.SqlType;
+import io.prestosql.spi.security.AccessDeniedException;
+import io.prestosql.spi.type.StandardTypes;
 import io.airlift.slice.Slice;
 import org.jasypt.util.text.BasicTextEncryptor;
 

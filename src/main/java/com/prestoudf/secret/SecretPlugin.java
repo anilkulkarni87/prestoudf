@@ -1,6 +1,6 @@
 package com.prestoudf.secret;
 
-import com.facebook.presto.spi.Plugin;
+import io.prestosql.spi.Plugin;
 import com.google.common.collect.ImmutableSet;
 import java.util.Set;
 
