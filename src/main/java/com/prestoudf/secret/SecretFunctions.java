@@ -20,7 +20,6 @@ import static io.airlift.slice.Slices.utf8Slice;
 
 public class SecretFunctions {
 
-    private static final BasicTextEncryptor basicTextEncryptor = new BasicTextEncryptor();
     private static final String secret = "cipher";
 
     private SecretFunctions(){
@@ -30,6 +29,7 @@ public class SecretFunctions {
     @ScalarFunction("encrypt")
     @SqlType(StandardTypes.VARCHAR)
     public static Slice encryptString(@SqlType(StandardTypes.VARCHAR) Slice privateData) {
+        BasicTextEncryptor basicTextEncryptor = new BasicTextEncryptor();
         basicTextEncryptor.setPasswordCharArray(secret.toCharArray());
         return utf8Slice(basicTextEncryptor.encrypt(privateData.toStringUtf8()));
 
@@ -39,6 +39,7 @@ public class SecretFunctions {
     @ScalarFunction("decrypt")
     @SqlType(StandardTypes.VARCHAR)
     public static Slice decryptString(@SqlType(StandardTypes.VARCHAR) Slice secureData) {
+        BasicTextEncryptor basicTextEncryptor = new BasicTextEncryptor();
         basicTextEncryptor.setPasswordCharArray(secret.toCharArray());
        return utf8Slice(basicTextEncryptor.decrypt(secureData.toStringUtf8()));
 
@@ -52,6 +53,7 @@ public class SecretFunctions {
                 //Can be integrated with LDAP or other authentication mechanism. Recommended approach is Apache Ranger
                 session.getUser().equalsIgnoreCase("admin")
         ){
+            BasicTextEncryptor basicTextEncryptor = new BasicTextEncryptor();
             basicTextEncryptor.setPasswordCharArray(secret.toCharArray());
             return utf8Slice(basicTextEncryptor.decrypt(secureData.toStringUtf8()));
         }else {
@@ -68,7 +70,7 @@ public class SecretFunctions {
         final AwsCrypto crypto = new AwsCrypto();
         String data = Base64.getEncoder().encodeToString((Base64.getEncoder().encode(secureData.getBytes())));
         final CryptoResult<String, KmsMasterKey> decryptResult  = crypto.decryptString(provider,data);
-        return utf8Slice(basicTextEncryptor.decrypt(decryptResult.getResult()));
+        return utf8Slice((decryptResult.getResult()));
     }
 
 
