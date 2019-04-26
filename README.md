@@ -17,5 +17,7 @@ Once the build is complete, execute the below commands (from the folder where th
 
 
 ### Credits
-The docker build presto cluster is from  [Lewuathe](https://github.com/Lewuathe)/**[docker-presto-cluster](https://github.com/Lewuathe/docker-presto-cluster)** 
+- The docker build presto cluster is from  [Lewuathe](https://github.com/Lewuathe)/**[docker-presto-cluster](https://github.com/Lewuathe/docker-presto-cluster)** 
 The docker-compose.template file is different from the one present in the above repo.
+
+ - [jampp](https://github.com/jampp)/**[presto-udfs](https://github.com/jampp/presto-udfs)**
