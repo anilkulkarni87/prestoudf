@@ -9,6 +9,8 @@ Once the build is complete, execute the below commands (from the folder where th
 - ``` make all ```
 - ``` make run-with-logs ``` If you want to see the logs which will show that your UDF is loaded
 
+![Successful Installation of UDF](http://i63.tinypic.com/2hicnec.jpg)
+
 ### Credits
 The docker build presto cluster is from  [Lewuathe](https://github.com/Lewuathe)/**[docker-presto-cluster](https://github.com/Lewuathe/docker-presto-cluster)** 
 The docker-compose.template file is different from the one present in the above repo.
